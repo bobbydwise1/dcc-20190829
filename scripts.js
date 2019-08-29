@@ -37,6 +37,40 @@ Try to recognize a pattern:
 
 */
 
+class binNode {
+  constructor(value=null,left=null,right=null) {
+    this.value=value;
+    this.left=left;
+    this.right=right;
+  }
+
+  addLeft(yourLefty) {
+    this.left=yourLefty
+    return this.left
+  }
+
+  addRight(yourRighty) {
+    this.right = yourRighty
+    return this.right
+  }
+}
+
+let node_a = new binNode('a')
+let node_b = new binNode('b')
+let node_c = new binNode('c')
+let node_d = new binNode('d')
+let node_e = new binNode('e')
+let node_f = new binNode('f')
+let node_g = new binNode('g')
+
+node_a.addLeft(node_b)
+node_a.addRight(node_c)
+node_b.addLeft(node_d)
+node_b.addRight(node_e)
+node_c.addLeft(node_f)
+node_c.addRight(node_g)
+
+
 $(document).ready(function() {
   $('#form1').submit(function(event){
     event.preventDefault()
