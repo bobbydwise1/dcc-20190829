@@ -25,15 +25,21 @@ d  e f  g
 
 Note it has to be a binary tree.  You can only have at most two children per node.
 
+The binary tree appears to be 'well constructed', ex - all left and right nodes are filled at every level if possible
+
 Try to recognize a pattern:
 
 [a, b, d, e, c, f, g]
 
 1.  [root, root.left, root.left.left, root.left.right, root.right, root.right.left, root.right.right]
 
+1.a The major pattern appears to be: parent, parent.left, parent.right
+
 [d, b, e, a, f, c, g]
 
 2.  [root.left.left, root.left, root.left,right, root, root.right.left, root.right, root.right.right]
+
+2.a The major pattern appears to be: parent.left, parent, parent.right
 
 */
 
@@ -52,6 +58,13 @@ class binNode {
   addRight(yourRighty) {
     this.right = yourRighty
     return this.right
+  }
+}
+
+const reMake = (preArray,inOrdArray) => {
+  if (preArray.length != inOrdArray.length) {return null}
+  for (i = 0; i < preArray.length; i++) {
+    
   }
 }
 
