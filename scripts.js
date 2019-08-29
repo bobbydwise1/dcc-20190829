@@ -13,14 +13,29 @@ And the following inorder traversal:
 
 You should return the following tree:
 
-   a
-  / \
- b   c
-/ \ / \
+    a
+   / \
+  b   c
+ / \ / \
 d  e f  g
 
 */
 
+/*
+
+Note it has to be a binary tree.  You can only have at most two children per node.
+
+Try to recognize a pattern:
+
+[a, b, d, e, c, f, g]
+
+1.  [root, root.left, root.left.left, root.left.right, root.right, root.right.left, root.right.right]
+
+[d, b, e, a, f, c, g]
+
+2.  [root.left.left, root.left, root.left,right, root, root.right.left, root.right, root.right.right]
+
+*/
 
 $(document).ready(function() {
   $('#form1').submit(function(event){
