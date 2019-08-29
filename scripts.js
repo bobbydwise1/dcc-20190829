@@ -25,7 +25,9 @@ d  e f  g
 
 Note it has to be a binary tree.  You can only have at most two children per node.
 
-The binary tree appears to be 'well constructed', ex - all left and right nodes are filled at every level if possible
+Assumption1: The binary tree appears to be 'well constructed', ex - all left and right nodes are filled at every level if possible.  The arrays of always of equal length, and contain the same characters (in different arrangements).
+
+Assumption2: Left nodes are always filled first at the same level.
 
 Try to recognize a pattern:
 
@@ -35,11 +37,24 @@ Try to recognize a pattern:
 
 1.a The major pattern appears to be: parent, parent.left, parent.right
 
+1.b The FIRST element is always the root.
+
+1.c Step by step construction:
+1.c.a. The first level construction is: [a,b,c].
+1.c.b. If the children have children, it follows them: [a,b,d,e,c]
+1.c.c. Next: [a,b,d,e,c,f,g]
+
 [d, b, e, a, f, c, g]
 
 2.  [root.left.left, root.left, root.left,right, root, root.right.left, root.right, root.right.right]
 
 2.a The major pattern appears to be: parent.left, parent, parent.right
+
+2.b The FIRST element is always a bottom-left node.
+
+2.c. Step by step construction:
+2.c.a. The first subnode is: [d,b,e]
+2.c.b. The parent
 
 */
 
@@ -63,10 +78,13 @@ class binNode {
 
 const reMake = (preArray,inOrdArray) => {
   if (preArray.length != inOrdArray.length) {return null}
+  let node_Root = new binNode(preArray[0])
   for (i = 0; i < preArray.length; i++) {
-    
   }
 }
+
+let test_pre = ['a','b','d','e','c','f','g']
+let test_in = ['d','b','e','a','f','c','g']
 
 let node_a = new binNode('a')
 let node_b = new binNode('b')
@@ -82,6 +100,7 @@ node_b.addLeft(node_d)
 node_b.addRight(node_e)
 node_c.addLeft(node_f)
 node_c.addRight(node_g)
+
 
 
 $(document).ready(function() {
