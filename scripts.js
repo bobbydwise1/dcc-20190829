@@ -27,8 +27,9 @@ $(document).ready(function() {
     event.preventDefault()
     let input0 = $('#input-section-0').val()
     console.log(input0)
-    let input1 = JSON.parse(input0)
-    $('#output-section-0').text(input1)
+    let input1 = input0.replace(/'/g,'"')
+    let input2 = JSON.parse(input1)
+    $('#output-section-0').text(JSON.stringify(input2))
 
   })
 });
