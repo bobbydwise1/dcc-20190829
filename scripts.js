@@ -76,32 +76,27 @@ class binNode {
   }
 }
 
-const reMake = (preArray,inOrdArray) => {
-  if (preArray.length != inOrdArray.length) {return null}
-  let node_Root = new binNode(preArray[0])
-  for (i = 0; i < preArray.length; i++) {
+//This function simply makes nodes from an array of strings.  It does not construct a tree.
+const makeObjTreeFromArray = (someArray) => {
+  let unsortedTree = {}
+  let temp;
+  for (q = 0; q<someArray.length; q++) {
+    unsortedTree['node_'+someArray[q]] = new binNode(someArray[q])
   }
+  return unsortedTree;
+}
+
+const makeArrayFromArray = (preArray,inOrdArray) => {
+  if (preArray.length != inOrdArray.length) {return null}
+  let store = makeBinNodesFromArray(preArray)
+  return store;
 }
 
 let test_pre = ['a','b','d','e','c','f','g']
 let test_in = ['d','b','e','a','f','c','g']
 
-let node_a = new binNode('a')
-let node_b = new binNode('b')
-let node_c = new binNode('c')
-let node_d = new binNode('d')
-let node_e = new binNode('e')
-let node_f = new binNode('f')
-let node_g = new binNode('g')
-
-node_a.addLeft(node_b)
-node_a.addRight(node_c)
-node_b.addLeft(node_d)
-node_b.addRight(node_e)
-node_c.addLeft(node_f)
-node_c.addRight(node_g)
-
-
+let unSortedTree = makeObjTreeFromArray(test_pre)
+console.log(unSortedTree)
 
 $(document).ready(function() {
   $('#form1').submit(function(event){
